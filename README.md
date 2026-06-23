@@ -17,6 +17,12 @@ the [project hub](https://sergiogbernardo.github.io/), alongside
 - **Entropy** — Shannon entropy (bits/byte) with a hint for compressed/encrypted
   data.
 - **Strings** — printable ASCII runs (min length 4), searchable.
+- **IOCs & secrets** — extracts URLs, IPv4 addresses, e-mails, domains and
+  base64 blobs, and flags high-signal secrets (AWS/GitHub/Google/Slack tokens,
+  JWTs, private-key blocks).
+- **Reputation** — one-click VirusTotal lookup by SHA-256 (only the hash is
+  sent, and only when you click).
+- **Export** — download the full analysis as JSON or Markdown.
 - **Hex dump** — the first 512 bytes.
 - **Archives** — file listing for ZIP, TAR and TAR.GZ.
 - **Images** — pixel dimensions and EXIF/GPS metadata when present.

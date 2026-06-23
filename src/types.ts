@@ -20,6 +20,8 @@ export interface ImageInfo {
   format: string;
 }
 
+import type { IocMatches } from './lib/iocs';
+
 export interface InspectResult {
   filename: string;
   size: number;
@@ -33,6 +35,7 @@ export interface InspectResult {
   hashes: FileHashes;
   stringsCount: number;
   strings: string[];
+  iocs?: IocMatches;
   archive?: ArchiveInfo;
   image?: ImageInfo;
   exif?: Record<string, string>;

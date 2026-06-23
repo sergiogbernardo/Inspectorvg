@@ -8,6 +8,7 @@ import { hexDump } from './hexdump';
 import { inspectArchive } from './archive';
 import { readExif, readImageInfo } from './image';
 import { inspectPdf } from './pdf';
+import { extractIocs, hasIocs } from './iocs';
 
 const MAX_STRINGS = 500;
 const SIGNATURE_BYTES = 16;
@@ -39,6 +40,9 @@ export async function inspectFile(file: File): Promise<InspectResult> {
     stringsCount: allStrings.length,
     strings: allStrings.slice(0, MAX_STRINGS),
   };
+
+  const iocs = extractIocs(allStrings);
+  if (hasIocs(iocs)) result.iocs = iocs;
 
   const archive = inspectArchive(data);
   if (archive) result.archive = archive;

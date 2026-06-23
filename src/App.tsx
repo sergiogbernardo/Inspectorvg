@@ -9,6 +9,8 @@ import StringsPanel from './components/StringsPanel';
 import ArchivePanel from './components/ArchivePanel';
 import ImagePanel from './components/ImagePanel';
 import MetadataPanel from './components/MetadataPanel';
+import IocPanel from './components/IocPanel';
+import ExportButtons from './components/ExportButtons';
 import { inspectFile } from './lib/inspect';
 import type { InspectResult } from './types';
 
@@ -46,6 +48,13 @@ export default function App() {
 
         {data && (
           <div className="mt-8 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-slate-500">
+                Resultado
+              </h2>
+              <ExportButtons data={data} />
+            </div>
+
             <FileInfo data={data} />
 
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -57,6 +66,8 @@ export default function App() {
                 {data.pdf && <MetadataPanel title="PDF" entries={data.pdf} />}
               </div>
             </div>
+
+            {data.iocs && <IocPanel iocs={data.iocs} />}
 
             <HexViewer dump={data.hexDump} />
             <StringsPanel strings={data.strings} count={data.stringsCount} />
