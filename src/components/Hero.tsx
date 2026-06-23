@@ -6,8 +6,6 @@ export default function Hero() {
       </h1>
       <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-400 sm:text-base">
         Hashes, entropia, magic bytes, strings, hex dump e metadados de qualquer arquivo.
-        Tudo roda no seu navegador — <span className="text-emerald-300">nenhum byte é enviado</span>{' '}
-        para nenhum servidor.
       </p>
     </section>
   );

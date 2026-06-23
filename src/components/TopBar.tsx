@@ -8,9 +8,6 @@ export default function TopBar() {
           <span className="font-display text-lg font-bold tracking-tight text-emerald-300">
             Inspectorvg
           </span>
-          <span className="hidden font-mono text-xs text-slate-500 sm:inline">
-            inspecione qualquer arquivo
-          </span>
         </div>
 
         <div className="flex items-center gap-4">

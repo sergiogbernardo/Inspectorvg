@@ -76,10 +76,7 @@ export default function App() {
       </main>
 
       <footer className="border-t border-emerald-500/10 py-6 text-center font-mono text-xs text-slate-600">
-        Inspectorvg · análise 100% no navegador ·{' '}
-        <a href="https://sergiogbernardo.github.io/" className="hover:text-emerald-400">
-          hub
-        </a>
+        © 2026 Sergio Bernardo
       </footer>
     </div>
   );
