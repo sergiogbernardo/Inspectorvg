@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MatrixRain from './components/MatrixRain';
 import TopBar from './components/TopBar';
 import Hero from './components/Hero';
 import UploadZone from './components/UploadZone';
@@ -33,51 +34,54 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-grid-glow">
-      <TopBar />
+    <div className="relative min-h-screen bg-grid-glow">
+      <MatrixRain />
+      <div className="relative z-10">
+        <TopBar />
 
-      <main className="mx-auto w-full max-w-5xl px-4 py-10 lg:px-6">
-        <Hero />
-        <UploadZone onFile={handleFile} loading={loading} />
+        <main className="mx-auto w-full max-w-5xl px-4 py-10 lg:px-6">
+          <Hero />
+          <UploadZone onFile={handleFile} loading={loading} />
 
-        {error && (
-          <div className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
-            {error}
-          </div>
-        )}
-
-        {data && (
-          <div className="mt-8 space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-slate-500">
-                Resultado
-              </h2>
-              <ExportButtons data={data} />
+          {error && (
+            <div className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
+              {error}
             </div>
+          )}
 
-            <FileInfo data={data} />
-
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <HashPanel hashes={data.hashes} />
-              <div className="space-y-4">
-                {data.image && <ImagePanel info={data.image} />}
-                {data.archive && <ArchivePanel info={data.archive} />}
-                {data.exif && <MetadataPanel title="EXIF" entries={data.exif} />}
-                {data.pdf && <MetadataPanel title="PDF" entries={data.pdf} />}
+          {data && (
+            <div className="mt-8 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h2 className="font-display text-sm font-semibold uppercase tracking-wider text-slate-500">
+                  Resultado
+                </h2>
+                <ExportButtons data={data} />
               </div>
+
+              <FileInfo data={data} />
+
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <HashPanel hashes={data.hashes} />
+                <div className="space-y-4">
+                  {data.image && <ImagePanel info={data.image} />}
+                  {data.archive && <ArchivePanel info={data.archive} />}
+                  {data.exif && <MetadataPanel title="EXIF" entries={data.exif} />}
+                  {data.pdf && <MetadataPanel title="PDF" entries={data.pdf} />}
+                </div>
+              </div>
+
+              {data.iocs && <IocPanel iocs={data.iocs} />}
+
+              <HexViewer dump={data.hexDump} />
+              <StringsPanel strings={data.strings} count={data.stringsCount} />
             </div>
+          )}
+        </main>
 
-            {data.iocs && <IocPanel iocs={data.iocs} />}
-
-            <HexViewer dump={data.hexDump} />
-            <StringsPanel strings={data.strings} count={data.stringsCount} />
-          </div>
-        )}
-      </main>
-
-      <footer className="border-t border-emerald-500/10 py-6 text-center font-mono text-xs text-slate-600">
-        © 2026 Sergio Bernardo
-      </footer>
+        <footer className="border-t border-emerald-500/10 py-6 text-center font-mono text-xs text-slate-600">
+          © 2026 Sergio Bernardo
+        </footer>
+      </div>
     </div>
   );
 }

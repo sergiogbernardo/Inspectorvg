@@ -16,18 +16,14 @@ export default function ExportButtons({ data }: Props) {
       <button
         type="button"
         className={BUTTON}
-        onClick={() =>
-          downloadText(`${base}.inspect.json`, toJsonReport(data), 'application/json')
-        }
+        onClick={() => downloadText(`${base}.inspect.json`, toJsonReport(data), 'application/json')}
       >
         Exportar JSON
       </button>
       <button
         type="button"
         className={BUTTON}
-        onClick={() =>
-          downloadText(`${base}.inspect.md`, toMarkdownReport(data), 'text/markdown')
-        }
+        onClick={() => downloadText(`${base}.inspect.md`, toMarkdownReport(data), 'text/markdown')}
       >
         Exportar Markdown
       </button>

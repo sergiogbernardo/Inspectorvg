@@ -52,7 +52,9 @@ export function extractIocs(strings: string[]): IocMatches {
   const emails = collect(text, PATTERNS.email);
 
   // Drop domains already covered by a URL or email to reduce duplication noise.
-  const covered = new Set([...urls, ...emails].join(' ').toLowerCase().match(PATTERNS.domain) ?? []);
+  const covered = new Set(
+    [...urls, ...emails].join(' ').toLowerCase().match(PATTERNS.domain) ?? [],
+  );
   const domains = collect(text, PATTERNS.domain).filter((d) => !covered.has(d.toLowerCase()));
 
   const secrets: SecretMatch[] = [];

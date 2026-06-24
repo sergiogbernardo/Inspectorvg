@@ -37,12 +37,7 @@ export default function UploadZone({ onFile, loading }: Props) {
           : 'border-emerald-500/20 bg-black/40 hover:border-emerald-400/50'
       }`}
     >
-      <input
-        ref={inputRef}
-        type="file"
-        className="hidden"
-        onChange={(e) => pick(e.target.files)}
-      />
+      <input ref={inputRef} type="file" className="hidden" onChange={(e) => pick(e.target.files)} />
       <p className="font-display text-lg font-semibold text-slate-200">
         {loading ? 'Analisando…' : 'Solte um arquivo aqui'}
       </p>
