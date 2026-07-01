@@ -5,9 +5,9 @@ bytes, embedded strings, a hex dump and format metadata — **entirely in the
 browser**. No file ever leaves your machine; there is no backend.
 
 It is the GitHub Pages version of the local `file-inspector` project, part of
-the [project hub](https://sergiogbernardo.github.io/), alongside
-[Bytevg](https://sergiogbernardo.github.io/Bytevg/) and
-[Scanvg](https://sergiogbernardo.github.io/Scanvg/).
+the [project hub](https://sabion.io/), alongside
+[Bytevg](https://sabion.io/Bytevg/) and
+[Scanvg](https://sabion.io/Scanvg/).
 
 ## Features
 
